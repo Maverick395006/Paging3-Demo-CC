@@ -11,8 +11,6 @@ import com.maverick.paging3democc.databinding.ItemQuoteBinding
 class QuotePagingAdapter :
     PagingDataAdapter<Result, QuotePagingAdapter.QuoteViewHolder>(COMPARATOR) {
 
-    private var quoteList = mutableListOf<Result>()
-
     interface EventListener {
         fun onItemClick(position: Int, item: Result)
     }
@@ -49,12 +47,6 @@ class QuotePagingAdapter :
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    fun addAllQuotes(mData: List<Result>) {
-        quoteList.clear()
-        quoteList.addAll(mData)
-        notifyDataSetChanged()
     }
 
     companion object {

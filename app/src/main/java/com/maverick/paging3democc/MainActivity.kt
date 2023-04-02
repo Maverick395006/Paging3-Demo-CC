@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maverick.paging3democc.databinding.ActivityMainBinding
 import com.maverick.paging3democc.models.Result
+import com.maverick.paging3democc.paging.LoaderAdapter
 import com.maverick.paging3democc.paging.QuotePagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.quoteList.layoutManager = LinearLayoutManager(this)
         binding.quoteList.setHasFixedSize(true)
-        binding.quoteList.adapter = quoteAdapter
+        binding.quoteList.adapter = quoteAdapter.withLoadStateHeaderAndFooter(
+            header = LoaderAdapter(),
+            footer = LoaderAdapter()
+        )
 
         quoteAdapter.setEventListener(object : QuotePagingAdapter.EventListener {
             override fun onItemClick(position: Int, item: Result) {

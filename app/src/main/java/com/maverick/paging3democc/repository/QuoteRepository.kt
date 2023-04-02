@@ -11,7 +11,7 @@ class QuoteRepository @Inject constructor(val quoteAPI: QuoteAPI) {
 
     fun getQuotes() = Pager(
         config = PagingConfig(
-            pageSize = 20, maxSize = 100
+            pageSize = 20, maxSize = 60
         ),
         pagingSourceFactory = { QuotePagingSource(quoteAPI) }
     ).liveData
