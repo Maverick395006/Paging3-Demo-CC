@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maverick.paging3democc.databinding.ActivityMainBinding
 import com.maverick.paging3democc.models.Result
@@ -11,6 +12,7 @@ import com.maverick.paging3democc.paging.LoaderAdapter
 import com.maverick.paging3democc.paging.QuotePagingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
+@OptIn(ExperimentalPagingApi::class)
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
